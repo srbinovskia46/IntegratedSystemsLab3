@@ -87,7 +87,10 @@ namespace IntegratedSystems.Service.Implementation
 
         public VaccinationCenter GetVaccinationCenterById(Guid? id)
         {
-            return _repository.Get(id);
+            var center = _repository.Get(id);
+            var vaccines = _vaccineRepository.GetAll().Where(vaccine => vaccine.VaccinationCenter == center.Id).ToList();
+            center.Vaccines = vaccines;
+            return center;
         }
 
         public List<VaccinationCenter> GetVaccinationCenters()

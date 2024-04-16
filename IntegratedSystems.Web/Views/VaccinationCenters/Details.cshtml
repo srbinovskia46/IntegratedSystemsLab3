@@ -36,7 +36,7 @@
     <a asp-action="AddVaccinatedPatientToCenter" asp-route-id="@Model?.Id">Add Vaccinated Patient to Center</a> |
     <a asp-action="Index">Back to List</a>
 </div>
-
+<br />
 @if (Model?.Vaccines != null)
 {
     <table class="table">
@@ -83,8 +83,6 @@
                     </td>
                 </tr>
             }
-
-        }
     </tbody>
 </table>
 }
